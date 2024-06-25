@@ -15,7 +15,6 @@ O projeto é dividido em várias partes principais:
 - **`manage.py`**: Script de gerenciamento do Django.
 
 ## Instalação e Configuração
-
 1. Clone o repositório para o seu ambiente local:
 
    ```bash
@@ -46,9 +45,9 @@ O projeto é dividido em várias partes principais:
     ```
 
 5. Inicie o servidor de desenvolvimento:
- ```bash
+    ```bash
     python manage.py runserver
- ```
+    ```
 
 6. Acesse a aplicação no navegador em http://127.0.0.1:8000/.
 
@@ -67,6 +66,15 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/produtos/`
   - **Método:** `POST`
   - **Descrição:** Cria um novo produto com os dados fornecidos.
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "tipo": "Eletrônico",
+        "referencia": "Smartphone XYZ",
+        "unidade": "Unidade",
+        "empresa": "TechStore"
+    }
+    ```
 
 - **Obter detalhes de um produto**
   - **Endpoint:** `/api/produtos/<int:pk>/`
@@ -77,6 +85,15 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/produtos/<int:pk>/`
   - **Método:** `PUT`
   - **Descrição:** Atualiza os dados de um produto específico pelo ID.
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "tipo": "Eletrônico",
+        "referencia": "Smartphone XYZ atualizado",
+        "unidade": "Unidade",
+        "empresa": "TechStore"
+    }
+    ```
 
 - **Excluir um produto**
   - **Endpoint:** `/api/produtos/<int:pk>/`
@@ -94,6 +111,15 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/vendas-master/`
   - **Método:** `POST`
   - **Descrição:** Cria uma nova venda com os dados fornecidos.
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "cpf_nota": "12345678901",
+        "troco": 0.00,
+        "dinheiro": 1500.00,
+        "total": 1500.00
+    }
+    ```
 
 - **Obter detalhes de uma venda**
   - **Endpoint:** `/api/vendas-master/<int:codigo>/`
@@ -104,6 +130,15 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/vendas-master/<int:codigo>/`
   - **Método:** `PUT`
   - **Descrição:** Atualiza os dados de uma venda específica pelo código.
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "cpf_nota": "12345678901",
+        "troco": 0.00,
+        "dinheiro": 1700.00,
+        "total": 1700.00
+    }
+    ```
 
 - **Excluir uma venda**
   - **Endpoint:** `/api/vendas-master/<int:codigo>/`
@@ -121,6 +156,14 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/vendas-detalhe/`
   - **Método:** `POST`
   - **Descrição:** Cria um novo detalhe de venda com os dados fornecidos.
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "qtd": 10,
+        "total": 2000,
+        "qtd_devolvida": 0
+    }
+    ```
 
 - **Obter detalhes de um detalhe de venda**
   - **Endpoint:** `/api/vendas-detalhe/<int:codigo>/`
@@ -131,6 +174,14 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/vendas-detalhe/<int:codigo>/`
   - **Método:** `PUT`
   - **Descrição:** Atualiza os dados de um detalhe de venda específico pelo código.
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "qtd": 15,
+        "total": 3000,
+        "qtd_devolvida": 1
+    }
+    ```
 
 - **Excluir um detalhe de venda**
   - **Endpoint:** `/api/vendas-detalhe/<int:codigo>/`
@@ -148,6 +199,17 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/pessoas/`
   - **Método:** `POST`
   - **Descrição:** Cria uma nova pessoa com os dados fornecidos.
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "empresa": "Empresa Exemplo LTDA",
+        "cnpj": "12345678000195",
+        "endereco": "Rua Exemplo, 123",
+        "municipio": "Cidade Exemplo",
+        "email1": "exemplo@email.com",
+        "celular1": "5511999999999"
+    }
+    ```
 
 - **Obter detalhes de uma pessoa**
   - **Endpoint:** `/api/pessoas/<int:pk>/`
@@ -158,7 +220,17 @@ A API oferece endpoints para gerenciar produtos, vendas e clientes. Abaixo estã
   - **Endpoint:** `/api/pessoas/<int:pk>/`
   - **Método:** `PUT`
   - **Descrição:** Atualiza os dados de uma pessoa específica pelo ID.
-
+  - **Exemplo de JSON de Requisição:**
+    ```json
+    {
+        "empresa": "Nova Empresa Exemplo LTDA",
+        "cnpj": "12345678000195",
+        "endereco": "Rua Exemplo, 456",
+        "municipio": "Cidade Exemplo",
+        "email1": "exemplo@novaemail.com",
+        "celular1": "5511888888888"
+    }
+    ```
 - **Excluir uma pessoa**
   - **Endpoint:** `/api/pessoas/<int:pk>/`
   - **Método:** `DELETE`
